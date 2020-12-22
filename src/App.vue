@@ -1,29 +1,63 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div id="app">
+    <nav>
+      <router-link to="/">
+        <div class="navigation__logo">
+          Twotter
+        </div>
+      </router-link>
+      <div class="navigation__user">
+        {{ state.user.username }}
+      </div>
+    </nav>
+    <router-view/>
   </div>
-  <router-view/>
 </template>
+
+<script>
+import { reactive } from 'vue'
+
+export default {
+  name: 'App',
+
+  setup() {
+    const state = reactive({
+      user: {
+        username: 'MusterMax'
+      }
+    })
+
+    return {
+      state
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-}
+  min-height: 100vh;
+  background-color: #F3F5FA;
 
-#nav {
-  padding: 30px;
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 5%;
+    background-color: darkgreen;
+    color: white;
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+    .navigation__logo {
+      font-weight: bold;
+      font-size: 24px;
+    }
 
-    &.router-link-exact-active {
-      color: #42b983;
+    .navigation__user {
+      font-weight: bold;
     }
   }
 }
