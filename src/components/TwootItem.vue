@@ -39,7 +39,7 @@ export default {
     transition: all .25s ease;
 
     &:hover {
-        transform: scale(1.1, 1.1);
+        transform: scale(1.05, 1.05);
     }
 
     .twoot-item__user {
