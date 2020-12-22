@@ -1,5 +1,13 @@
 <template>
   <div id="app">
+    <nav>
+      <div class="navigation__logo">
+        Twotter
+      </div>
+      <div class="navigation__user">
+        {{ user.username }}
+      </div>
+    </nav>
     <UserProfile/>
   </div>
 </template>
@@ -9,7 +17,14 @@ import UserProfile from './components/UserProfile'
 
 export default {
   name: 'App',
-  components: { UserProfile }
+  components: { UserProfile },
+  data() {
+    return {
+      user: {
+        username: 'MusterMax'
+      }
+    }
+  }
 }
 </script>
 
@@ -21,6 +36,5 @@ export default {
   color: #2c3e50;
   display: flex;
   flex-direction: column;
-  background-color: gray;
 }
 </style>
